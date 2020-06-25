@@ -141,12 +141,8 @@ public class FastChecker {
     private static boolean checkIinBinSum(String value){
         int endDigit = value.charAt(11) - '0';
         int sum = 0;
-        int[] digits = new int[12];
-        for (int i = 0; i < 12; ++i) {
-            digits[i] = value.charAt(i) - '0';
-        }
         for (int i = 0; i < 11; ++i) {
-            sum += (i + 1) * digits[i];
+            sum += (i + 1) * (value.charAt(i) - '0');
         }
         int k = sum % 11;
         if (k == 10) {
@@ -157,7 +153,7 @@ public class FastChecker {
                 if(t >= 11) {
                     t -= 11;
                 }
-                sum += t * digits[i];
+                sum += t * (value.charAt(i) - '0');
             }
             k = sum % 11;
             if (k == 10 || k != endDigit) {
